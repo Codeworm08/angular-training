@@ -6,6 +6,10 @@ import { GreetComponent } from './greet/greet.component';
 import { HomeComponent } from './home/home.component';
 import { TrainingComponent } from './training/training.component';
 import { UserComponent } from './user/user.component';
+import { IfdemoComponent } from './ifdemo/ifdemo.component';
+import { TopicsComponent } from './topics/topics.component';
+import { HighlightDirective } from './highlight.directive';
+import { HelloPipe } from './hello.pipe';
 
 @NgModule({
   declarations: [
@@ -13,7 +17,11 @@ import { UserComponent } from './user/user.component';
     GreetComponent,
     HomeComponent,
     TrainingComponent,
-    UserComponent
+    UserComponent,
+    IfdemoComponent,
+    TopicsComponent,
+    HighlightDirective,
+    HelloPipe
   ],
   imports: [
     BrowserModule

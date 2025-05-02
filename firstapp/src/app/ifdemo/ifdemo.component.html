@@ -1,0 +1,36 @@
+<!--
+<h3 *ngIf="x==0 else checkpos ">
+    ZERO
+</h3>
+
+<ng-template #checkpos>
+<h3 *ngIf="x>0 else neg">POSITIVE</h3>
+</ng-template>
+
+<ng-template #neg>
+    <h3>NEGATIVE</h3>
+</ng-template>
+-->
+
+@if (x==0) {
+    <h3>Zero</h3>
+}
+@else if (x>0) {
+    <h3>Positive</h3>
+}
+@else {
+    <h3>Negative</h3>
+}
+
+@switch (day) {
+  @case (1) {
+    <h3 appHighlight>Monday</h3>
+  }
+  @case (2) {
+    <h3>Tuesday</h3>
+  }
+  @default {
+    <h3>Unknown</h3>
+  }
+}
+

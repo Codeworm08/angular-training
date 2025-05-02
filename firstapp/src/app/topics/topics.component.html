@@ -1,0 +1,9 @@
+<div>
+    <ul>
+        @for (t of topics; track $index) {
+            <li>{{t}}</li>
+        }
+    </ul>
+     Topic <input type="text" name="topic" #tp (keyup.enter)="add(tp)">
+    <button (click)="add(tp)">Next</button>
+</div>

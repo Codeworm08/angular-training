@@ -7,6 +7,5 @@ import { Component } from "@angular/core";
     standalone:false
 })
 export class GreetComponent {
-
     public msg:string='Greetings from greet comp!!'
 }
