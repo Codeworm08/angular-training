@@ -14,6 +14,5 @@ export class TrainingComponent {
   public duration:string='';
   @Input()
   public timing:string='';
-
   public logo='anglogo.jpeg';
 }
