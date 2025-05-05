@@ -1,16 +1,12 @@
 <div>
-  <app-greet></app-greet>
-  <hr>
-  <app-home hdr="Welcome Home!!"></app-home>
-  <hr>
-  <app-training name="Angular 19" duration="8 days" timing="9:30am-1:30am"></app-training>
-<hr>
-<app-user></app-user>
-<hr>
-<app-ifdemo></app-ifdemo>
-<hr>
-<app-topics></app-topics>
-<hr>
-<app-blogpost></app-blogpost>
+  <a routerLink="">Home</a>
+  <a routerLink="blog">Blog</a>
+  <a routerLink="greet">Greet</a>
+  <a routerLink="ifdemo">If Demo</a>
+  <a routerLink="topics">Topics</a>
+  <a routerLink="training">Training</a>
+  <a routerLink="user">User</a>
 </div>
-
+<div>
+  <router-outlet></router-outlet>
+</div>

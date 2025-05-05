@@ -12,8 +12,20 @@ import { HighlightDirective } from './highlight.directive';
 import { HelloPipe } from './hello.pipe';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { CommentComponent } from './comment/comment.component';
-import { GreetService } from './greet/greet.service';
+import { RouterModule, Routes } from '@angular/router';
+import { DetailsComponent } from './details/details.component';
 
+const routes:Routes = [
+  {path:'',component:HomeComponent},
+  {path:'blog',component:BlogpostComponent},
+  {path:'greet',component:GreetComponent},
+  {path:'ifdemo',component:IfdemoComponent},
+  {path:'topics',component:TopicsComponent},
+  {path:'training',component:TrainingComponent},
+  {path:'user',component:UserComponent, children:[
+    {path:'details/:uid',component:DetailsComponent}
+  ]}
+] 
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,10 +38,12 @@ import { GreetService } from './greet/greet.service';
     HighlightDirective,
     HelloPipe,
     BlogpostComponent,
-    CommentComponent
+    CommentComponent,
+    DetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
