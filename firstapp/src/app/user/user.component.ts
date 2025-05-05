@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { User } from './user';
 import { UserService } from './user.service';
 import { filter, map } from 'rxjs';
@@ -9,7 +9,7 @@ import { filter, map } from 'rxjs';
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
-export class UserComponent implements OnInit, OnDestroy {
+export class UserComponent  {
   users: Array<User> = [];
   /*public ngOnInit() {
     let us: UserService = new UserService();
@@ -19,14 +19,9 @@ export class UserComponent implements OnInit, OnDestroy {
 
   }*/
 
-  public ngOnInit() {
-    let us: UserService = new UserService();
-      us.getUsersRx().subscribe(data=>{
+  public constructor(private us:UserService) {
+     this.us.getUsersRx().subscribe(data=>{
       this.users= data;
     });
-  }
-
-  ngOnDestroy(): void {
-    this.users = [];
   }
 }

@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './blogpost.component.css'
 })
 export class BlogpostComponent {
-
   public comments:Array<string> =[];
   public processComment(cmt:string) : void {
     this.comments.push(cmt);

@@ -1,4 +1,9 @@
 
 <div>
-    <h3 [appHighlight]="color">{{msg}}</h3>
+    <h3>Messages</h3>
+    <ol>
+    @for (m of msgs; track $index) {
+     <li>{{m}}</li>
+    }
+</ol>
 </div>
