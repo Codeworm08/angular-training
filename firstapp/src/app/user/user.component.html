@@ -8,10 +8,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let u of users">
-      <td>{{ u.userid }}</td>
+      <td><a [routerLink]="['details',u.userid]"> {{ u.userid }}</a></td>
       <td>{{ u.username }}</td>
       <td>{{ u.email }}</td>
     </tr>
   </tbody>
 </table>
+<div>
+  <router-outlet></router-outlet>
+</div>
 
