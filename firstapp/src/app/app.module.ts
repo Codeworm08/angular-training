@@ -10,6 +10,8 @@ import { IfdemoComponent } from './ifdemo/ifdemo.component';
 import { TopicsComponent } from './topics/topics.component';
 import { HighlightDirective } from './highlight.directive';
 import { HelloPipe } from './hello.pipe';
+import { BlogpostComponent } from './blogpost/blogpost.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HelloPipe } from './hello.pipe';
     IfdemoComponent,
     TopicsComponent,
     HighlightDirective,
-    HelloPipe
+    HelloPipe,
+    BlogpostComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule
