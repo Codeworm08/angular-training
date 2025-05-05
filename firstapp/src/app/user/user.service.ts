@@ -1,5 +1,9 @@
 import { Observable } from "rxjs";
 import { User } from "./user";
+import { Injectable } from "@angular/core";
+@Injectable({
+    providedIn:'root'
+})
 export class UserService {
     private usersdata: Array<User> = [
         { userid: 'U1', username: 'John', email: 'carter@msn.com' },

@@ -12,6 +12,7 @@ import { HighlightDirective } from './highlight.directive';
 import { HelloPipe } from './hello.pipe';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { CommentComponent } from './comment/comment.component';
+import { GreetService } from './greet/greet.service';
 
 @NgModule({
   declarations: [
