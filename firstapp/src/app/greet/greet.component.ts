@@ -8,4 +8,5 @@ import { Component } from "@angular/core";
 })
 export class GreetComponent {
     public msg:string='Greetings from greet comp!!'
+    public color:string='yellow';
 }

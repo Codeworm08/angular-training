@@ -6,8 +6,11 @@ import { Directive, ElementRef, Input, input } from '@angular/core';
 })
 export class HighlightDirective {
 
+  @Input('appHighlight')
+  appHighlight:string='';
+
   constructor(private eleRef:ElementRef) { 
-    this.eleRef.nativeElement.style.backgroundColor='yellow';
+    this.eleRef.nativeElement.style.backgroundColor=this.appHighlight;
   }
 
 
