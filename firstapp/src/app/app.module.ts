@@ -14,6 +14,8 @@ import { BlogpostComponent } from './blogpost/blogpost.component';
 import { CommentComponent } from './comment/comment.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
+import { SigninComponent } from './signin/signin.component';
+import { FormsModule } from '@angular/forms';
 
 const routes:Routes = [
   {path:'',component:HomeComponent},
@@ -24,7 +26,9 @@ const routes:Routes = [
   {path:'training',component:TrainingComponent},
   {path:'user',component:UserComponent, children:[
     {path:'details/:uid',component:DetailsComponent}
-  ]}
+  ]},
+  {path:'signin',component:SigninComponent}
+ 
 ] 
 @NgModule({
   declarations: [
@@ -39,11 +43,13 @@ const routes:Routes = [
     HelloPipe,
     BlogpostComponent,
     CommentComponent,
-    DetailsComponent
+    DetailsComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
