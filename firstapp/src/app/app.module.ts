@@ -15,7 +15,8 @@ import { CommentComponent } from './comment/comment.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { SigninComponent } from './signin/signin.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 const routes:Routes = [
   {path:'',component:HomeComponent},
@@ -27,8 +28,9 @@ const routes:Routes = [
   {path:'user',component:UserComponent, children:[
     {path:'details/:uid',component:DetailsComponent}
   ]},
-  {path:'signin',component:SigninComponent}
- 
+  {path:'signin',component:SigninComponent},
+  {path:'signup',component:SignupComponent}
+  
 ] 
 @NgModule({
   declarations: [
@@ -44,12 +46,14 @@ const routes:Routes = [
     BlogpostComponent,
     CommentComponent,
     DetailsComponent,
-    SigninComponent
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
