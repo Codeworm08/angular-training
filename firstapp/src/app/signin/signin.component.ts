@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SigninService } from './signin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -12,12 +13,15 @@ export class SigninComponent {
   password: string = '';
   msg: string = '';
 
-  public constructor(private ss: SigninService) {
+  public constructor(private ss: SigninService,private router:Router) {
 
   }
   public doSignIn(): void {
     if (this.ss.checkUser(this.login, this.password))
-      this.msg = 'Welcome ' + this.login;
+    {
+      sessionStorage.setItem('login',this.login);
+      this.router.navigate(['']);
+    }
     else
       this.msg = 'Invalid login/password';
 
