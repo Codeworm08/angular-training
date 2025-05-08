@@ -1,22 +1,22 @@
-
 <div>
-    <h3>SignUp</h3>
-    <form [formGroup]="frm">
+  <h4>Sign Up</h4>
+  <form [formGroup]="signupform">
+    <div>
+      <label for="fname">Full Name</label>
+      <input type="text" formControlName="fname" name="fname" />
+    </div>
+    <button type="button" (click)="addEmail()">+ Add another Email</button>
+  
+    <div formArrayName="emails">
+      <div *ngFor="let email of emails.controls; let i = index">
+        <!-- The repeated alias template -->
+        <label for="email-{{ i }}">Email :</label>
+        <input id="email-{{ i }}" type="text" [formControlName]="i" />
+      </div>
+     </div>
 
     <div>
-        <label for="">Full Name</label>
-        <input type="text" name="fname" formControlName="fname">
-    <div [hidden]="frm.get('fname')?.valid || frm.get('fname')?.pristine">
-        Full Name is required
+      <button (click)="save()">Save</button>
     </div>
-    </div>
-    <div>
-        <label for="">Email</label>
-        <input type="text" name="email" formControlName="email">
-    </div>
-    <div>
-        <button (click)="doSignup()" [disabled]="frm.invalid">SignUp</button>
-    </div>
-</form>
+  </form>
 </div>
-
