@@ -1,0 +1,21 @@
+<h3>SignIn</h3>
+<div>
+    <div>
+        <label for="">Login</label>
+        <input type="text" [(ngModel)]="login" #lg="ngModel" required><span class="req">*</span>
+   <div [hidden]="lg.valid || lg.pristine">
+    <p class="req">Login is required</p>
+   </div>
+    </div>
+    <div>
+        <label for="">Password</label>
+        <input type="password"  [(ngModel)]="password" #pw="ngModel" required><span class="req" >*</span>
+        <div [hidden]="pw.valid || pw.pristine">
+            <p class="req">Password is required</p>
+           </div>
+    </div>
+    <div>
+        <button (click)="doSignIn()" [disabled]="lg.invalid || pw.invalid">SignIn</button>
+    </div>
+    <div>{{msg}}</div>
+</div>
