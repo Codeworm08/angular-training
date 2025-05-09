@@ -13,4 +13,12 @@ export class CarService {
   public getCars(): Observable<Array<Car>> {
     return this.http.get<Array<Car>>(this.url);
   }
+
+  public saveCar(car: Car): Observable<Car> {
+    return this.http.post<Car>(this.url, car);
+  }
+  public deleteCar(id:string): Observable<Car> {
+    return this.http.delete<Car>(this.url+"/"+id);
+  }
+
 }
