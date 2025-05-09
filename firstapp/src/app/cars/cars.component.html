@@ -1,0 +1,22 @@
+<h3>Products</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Variant</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (c of cars; track $index) {
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.make}}</td>
+                <td>{{c.model}}</td>
+                <td>{{c.variant}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
