@@ -20,7 +20,8 @@ import { SignupComponent } from './signup/signup.component';
 import { authGuard } from './auth.guard';
 import { notsavedGuard } from './notsaved.guard';
 import { CarsComponent } from './cars/cars.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './cars/token.interceptor';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -64,7 +65,13 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
