@@ -1,0 +1,37 @@
+<h2>Give Product Feedback</h2>
+<div>
+    <form #frm="ngForm">
+        <div>
+            <label for="">Username</label>
+            <input type="text" name="username" [(ngModel)]="username" #un="ngModel" required>
+            <div [hidden]="un.valid || un.pristine ">
+                <p> Username is required</p>
+            </div>
+        </div>
+        <div>
+            <label for="">Product Rating</label>
+            <select name="rating" [(ngModel)]="rating" #rt="ngModel" required>
+                <option [value]="0" disabled>Select</option>
+                <option *ngFor="let r of [1,2,3,4,5]" [value]="r">
+                    {{ r }}
+                  </option>
+            </select>
+            <div [hidden]="rt.valid || rt.pristine">
+                <p>Rating is required</p>
+            </div>
+        </div>
+        <div>
+            <label for="">Comments</label>
+            <textarea name="comments" [(ngModel)]="comments" rows="4" placeholder="Comments"></textarea>
+        </div>
+        <div>
+            <label for="">Would you recommend us?</label>
+            <input type="checkbox" name="recommend" [(ngModel)]="recommend">
+        </div>
+        <div>
+            <button (click)="giveFeedback()" [disabled]="frm.invalid">Submit</button>
+        </div>
+        <div>{{msg}}</div>
+    </form>
+
+</div>

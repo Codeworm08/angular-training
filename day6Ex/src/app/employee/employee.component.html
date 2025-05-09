@@ -1,0 +1,59 @@
+<form [formGroup]="employee" (ngSubmit)="onSubmit()">
+
+    <!-- First Name -->
+    <div>
+      <label>First Name</label>
+      <input formControlName="firstName">
+      <p *ngIf="f.firstName.touched && f.firstName.errors?.['required']">First name is required.</p>
+      <p *ngIf="f.firstName.errors?.['minlength']">Minimum 2 characters required.</p>
+    </div>
+  
+    <!-- Last Name -->
+    <div>
+      <label>Last Name</label>
+      <input formControlName="lastName">
+      <p *ngIf="f.lastName.touched && f.lastName.errors?.['required']">Last name is required.</p>
+      <p *ngIf="f.lastName.errors?.['minlength']">Minimum 2 characters required.</p>
+    </div>
+  
+    <!-- Email -->
+    <div>
+      <label>Email</label>
+      <input formControlName="email">
+      <p *ngIf="f.email.touched && f.email.errors?.['required']">Email is required.</p>
+      <p *ngIf="f.email.errors?.email">Invalid email format.</p>
+    </div>
+  
+    <!-- Phone -->
+    <div>
+      <label>Phone (optional)</label>
+      <input formControlName="phone">
+      <p *ngIf="f.phone.touched && f.phone.errors?.pattern">Must be exactly 10 digits.</p>
+    </div>
+  
+    <!-- Department -->
+    <div>
+      <label>Department</label>
+      <select formControlName="department">
+        <option value="">Select...</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+      <p *ngIf="f.department.touched && f.department.errors?.['required']">Department is required.</p>
+    </div>
+  
+    <!-- Skills -->
+    <div>
+      <label>Skills</label>
+      <div formArrayName="skills">
+        <div *ngFor="let skill of skills.controls; let i = index">
+          <input [formControlName]="i">
+          <button type="button" (click)="removeSkill(i)">Remove</button>
+          <p *ngIf="skill.touched && skill.errors?.['required']">Skill is required.</p>
+        </div>
+      </div>
+      <button type="button" (click)="addSkill()">Add Skill</button>
+    </div>
+  
+    <br>
+    <button type="submit">Submit</button>
+  </form>
