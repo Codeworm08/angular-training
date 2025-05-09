@@ -1,0 +1,15 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from './user';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  private url: string = "https://jsonplaceholder.typicode.com/users";
+  constructor(private http:HttpClient) { }
+  public getUsers():Observable<Array<User>>{
+    return this.http.get<Array<User>>(this.url);
+  }
+}
