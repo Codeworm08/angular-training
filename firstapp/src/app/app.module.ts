@@ -17,13 +17,15 @@ import { DetailsComponent } from './details/details.component';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { authGuard } from './auth.guard';
+import { notsavedGuard } from './notsaved.guard';
 
 const routes:Routes = [
   {path:'',component:HomeComponent},
-  {path:'blog',component:BlogpostComponent},
+  {path:'blog',component:BlogpostComponent,canActivate:[authGuard]},
   {path:'greet',component:GreetComponent},
   {path:'ifdemo',component:IfdemoComponent},
-  {path:'topics',component:TopicsComponent},
+  {path:'topics',component:TopicsComponent,canActivate:[authGuard],canDeactivate:[notsavedGuard]},
   {path:'training',component:TrainingComponent},
   {path:'user',component:UserComponent, children:[
     {path:'details/:uid',component:DetailsComponent}
