@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { from, Observable } from 'rxjs';
 
 @Component({
@@ -7,8 +7,9 @@ import { from, Observable } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
+  login:string | null= '';
   @Input()
   public hdr:string='';
 
@@ -16,4 +17,7 @@ export class HomeComponent {
 
   msgs$:Observable<string> = from(['Happy Learning','All the best!!']);
   
+  ngOnInit(): void {
+      this.login = sessionStorage.getItem('login');
+  }
 }

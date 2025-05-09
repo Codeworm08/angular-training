@@ -17,21 +17,28 @@ import { DetailsComponent } from './details/details.component';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { authGuard } from './auth.guard';
+import { notsavedGuard } from './notsaved.guard';
+import { CarsComponent } from './cars/cars.component';
+import { HttpClientModule } from '@angular/common/http';
 
-const routes:Routes = [
-  {path:'',component:HomeComponent},
-  {path:'blog',component:BlogpostComponent},
-  {path:'greet',component:GreetComponent},
-  {path:'ifdemo',component:IfdemoComponent},
-  {path:'topics',component:TopicsComponent},
-  {path:'training',component:TrainingComponent},
-  {path:'user',component:UserComponent, children:[
-    {path:'details/:uid',component:DetailsComponent}
-  ]},
-  {path:'signin',component:SigninComponent},
-  {path:'signup',component:SignupComponent}
-  
-] 
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'blog', component: BlogpostComponent, canActivate: [authGuard] },
+  { path: 'greet', component: GreetComponent },
+  { path: 'ifdemo', component: IfdemoComponent },
+  { path: 'topics', component: TopicsComponent, canActivate: [authGuard], canDeactivate: [notsavedGuard] },
+  { path: 'training', component: TrainingComponent },
+  {
+    path: 'user', component: UserComponent, children: [
+      { path: 'details/:uid', component: DetailsComponent }
+    ]
+  },
+  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'cars', component: CarsComponent }
+
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,13 +54,15 @@ const routes:Routes = [
     CommentComponent,
     DetailsComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    CarsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
