@@ -10,7 +10,7 @@
     <tbody>
         @for (u of users; track $index){
             <tr>
-                <td>{{ u.id }}</td>
+                <td>{{ u.id }} <button (click)="viewPosts(u.id)">View Posts</button></td>
                 <td>{{ u.name }}</td>
                 <td>{{ u.email }}</td>
                 <td>{{ u.phone }}</td>
@@ -18,4 +18,10 @@
         }
     </tbody>
 <h3 *ngIf="err">Error fetching users: {{ err }}</h3>
+<h3>Create New User:</h3>
+<input type="text" name="id" [(ngModel)]="newUser.id" />
+<input type="text" name="name" [(ngModel)]="newUser.name" />
+<input type="email" name="email" [(ngModel)]="newUser.email" />
+<input type="text" name="phone" [(ngModel)]="newUser.phone" />
+<button (click)="save()">Save</button>
 </table>
