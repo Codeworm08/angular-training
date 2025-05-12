@@ -1,0 +1,7 @@
+<ul *ngIf="!isLoading && posts.length>0">
+    @for(post of posts;track $index){
+        <li><h2>{{ post.title }}</h2>: {{ post.body }}</li>
+    }
+    
+</ul>
+<div *ngIf="!isLoading && posts.length === 0">No posts found.</div>
