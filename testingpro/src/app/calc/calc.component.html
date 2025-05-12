@@ -1,0 +1,13 @@
+<div>
+    <label>#1</label>
+    <input type='text' name="n1" #n1>
+</div>
+
+<div>
+    <label>#2</label>
+    <input type='text' name="n2" #n2>
+</div>
+<div>
+    Result : <h3>{{res}}</h3>
+</div>
+<button (click)="addNum(n1.value,n2.value)">Add</button>
